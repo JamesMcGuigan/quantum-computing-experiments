@@ -1,0 +1,6 @@
+.idea
+venv
+venv_windows
+.ipynb_checkpoints
+*.iml
+*.log
