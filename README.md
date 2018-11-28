@@ -7,6 +7,10 @@ source venv/bin/activate
 jupyter lab
 ```
 
+## Complex Numbers
+- [complex-numbers/1_algebra.ipynb]() 
+    - Jupyter Lab: Powers, Addition, Subtraction, Multiplication, Division of Complex Numbers
+
 ## Books
 Quantum Computing for Computer Scientists Hardcover (2008) by Noson S. Yanofsky  (Author), Mirco A. Mannucci  (Author)
 
