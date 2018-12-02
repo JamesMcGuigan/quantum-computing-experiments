@@ -27,14 +27,21 @@ for OS in UNIX WINDOWS; do
             dos2unix $VENV_ACTIVATE
             perl -p -i -e "s/\"(C:.*)\"/'\$1'/g"       $VENV_ACTIVATE  # BUGFIX: syntax error near unexpected token `(' if [ "x(venv) " != x ] ; then'
         fi
-        echo "export PATH=\$PATH:$VENV_BIN"                                      >> $VENV_ACTIVATE
+        echo "export PATH=$VENV_BIN:\$PATH"                                      >> $VENV_ACTIVATE
         echo 'export PYTHONSTARTUP=./.pythonstartup.py'                          >> $VENV_ACTIVATE
         echo "PS1=\"($VENV) \$(echo \$PS1 | perl -p -e 's/^(\s*\(.*?\))+//g')\"" >> $VENV_ACTIVATE  # BUGFIX: $PS1 prompt
     fi;
 
     # Use pip and python from inside the virtualenv
     source $VENV_ACTIVATE
-    pip install --upgrade pip pip-tools
-    pip-compile
-    pip-sync
+    if [[ $OS == 'UNIX' ]]; then
+        pip install --upgrade pip pip-tools
+        pip-compile
+        pip-sync
+    fi;
+    if [[ $OS == 'WINDOWS' ]]; then
+        python -m pip install --upgrade pip pip-tools
+        pip-compile.exe
+        pip-sync.exe
+    fi;
 done
