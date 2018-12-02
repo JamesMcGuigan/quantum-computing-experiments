@@ -27,3 +27,4 @@ pandas
 scipy
 seaborn
 sympy
+pydash
