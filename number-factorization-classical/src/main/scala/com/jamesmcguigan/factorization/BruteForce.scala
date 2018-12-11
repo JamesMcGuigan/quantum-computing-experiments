@@ -4,18 +4,16 @@ import scala.math.{ceil,sqrt}
 
 object BruteForce extends Factorization {
 
-  override def factors(number: Int): Array[Int] = {
-    val max: Int = sqrt(number.toDouble).toInt
-    var factors: ListBuffer[Int] = ListBuffer()
-    for( n <- 1 to max if n % 2 == 1 ) {
-      if( number % n == 0 && factors.size <= 2 ) {
-        factors += n
-      }
+  override def factors(number: Int): Set[Int] = {
+    val max: Int = number / 2
+    var factors: ListBuffer[Int] = ListBuffer(number)
+    for( n <- 1 to max if number % n == 0 ) {
+      factors += n
     }
-    return factors.toArray
+    return factors.toSet
   }
 
-  override def primeFactors(number: Int): Array[Int] = {
+  override def primeFactors(number: Int): Set[Int] = {
     return factors(number).filter(isPrime)
   }
 
