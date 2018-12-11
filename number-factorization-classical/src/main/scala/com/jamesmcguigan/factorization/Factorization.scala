@@ -1,7 +1,7 @@
 package com.jamesmcguigan.factorization
 
-object Factorization {
-  def main(args: Array[String]): Unit = {
-    println("Hello, Factorization")
-  }
+trait Factorization {
+  def factors(number: Int): Array[Int]
+  def primeFactors(number: Int): Array[Int]
+  def isPrime(number: Int): Boolean
 }
