@@ -14,3 +14,9 @@ lazy val root = (project in file(".")).
   )
 
 mainClass in (Compile, run) := Some("com.jamesmcguigan.factorization.Main")
+
+// https://mvnrepository.com/artifact/com.github.cb372/scalacache-core
+//libraryDependencies += "com.github.cb372" %% "scalacache-core" % "0.3.0"
+//libraryDependencies += "com.github.cb372" %% "scalacache-core" % "0.26.0"
+//libraryDependencies += "com.github.cb372" %% "scalacache-memcached" % "0.26.0"
+//libraryDependencies += "org.scalaz" %% "scalaz-core" % "7.2.27"
