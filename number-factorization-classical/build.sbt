@@ -1,20 +1,16 @@
-name               := """number-factorization-classical"""
-version            := "1.0.0-SNAPSHOT"
-scalaVersion       := "2.12.7"
-crossScalaVersions := Seq("2.12.7")
-val projectMainClass = "com.jamesmcguigan.factorization.Main"
+import Dependencies._
 
-// resolvers += "scalaz-bintray" at "https://dl.bintray.com/scalaz/releases"
+lazy val root = (project in file(".")).
+  settings(
+    inThisBuild(List(
+      organization := "com.jamesmcguigan",
+      scalaVersion := "2.12.7",
+      version      := "0.1.0-SNAPSHOT"
+    )),
+    mainClass in assembly := Some("com.jamesmcguigan.factorization.Main"),
+    // assemblyJarName in assembly := "number-factorization-classical.jar",
+    name := "number-factorization-classical",
+    libraryDependencies += scalaTest % Test
+  )
 
-
-
-//*******************************
-// Maven settings
-//*******************************
-
-publishMavenStyle := true
-organization := "com.jamesmcguigan"
-description  := ""
-homepage     := Some(url("https://github.com/JamesMcGuigan/quantum-computing-experiments"))
-licenses     := Seq()
-pomIncludeRepository := { _ => false }
+mainClass in (Compile, run) := Some("com.jamesmcguigan.factorization.Main")

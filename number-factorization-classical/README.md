@@ -26,3 +26,16 @@ scalac -d target/scala-2.12/classes/  src/main/scala/com/jamesmcguigan/factoriza
 scala -cp target/scala-2.12/classes/  "com.jamesmcguigan.factorization.Main"
 ```
 
+#### jar
+Create a thin jar
+```bash
+sbt package
+java -cp target/scala-2.12/number-factorization-classical_2.12-0.1.0-SNAPSHOT.jar:$(cat target/streams/compile/dependencyClasspath/\$global/streams/export) com.jamesmcguigan.factorization.Main
+```
+
+Create a fat jar
+```bash
+sbt assembly
+java -jar target/scala-2.12/number-factorization-classical-assembly-0.1.0-SNAPSHOT.jar
+scala     target/scala-2.12/number-factorization-classical-assembly-0.1.0-SNAPSHOT.jar
+```
